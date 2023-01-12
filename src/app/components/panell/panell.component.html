@@ -1,0 +1,22 @@
+<div class="container" class="p-2">
+    <div class="row">
+        <div class="col-12 col-sm-6  p-2 border border-3 rounded border-dark" style="max-width: 350px;">
+            <label class="p-2">
+            Número de páginas
+                <input  type="number"
+                        name="numberPages"
+                        [(ngModel)]="newPanel.numberPages"
+                        (change)="cambiarCantidad1($event)"
+                        style="max-width: 160px" />
+            </label>
+            <label class="p-2">
+            Número de idiomas
+                <input  type="number"
+                        name="numberLanguages"
+                        [(ngModel)]="newPanel.numberLanguages" 
+                        (change)="cambiarCantidad2($event)"
+                        style="max-width: 160px" />
+            </label>
+        </div>
+    </div>
+</div>
