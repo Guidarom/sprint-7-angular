@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PanellComponent } from './components/panell/panell.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { BudgetListComponent } from './components/budget-list/budget-list.component';
 
 
 
@@ -18,7 +19,8 @@ import { ModalComponent } from './components/modal/modal.component';
     AppComponent,
     HomeComponent,
     PanellComponent,
-    ModalComponent
+    ModalComponent,
+    BudgetListComponent
   ],
   imports: [
     BrowserModule,

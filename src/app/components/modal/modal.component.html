@@ -1,6 +1,11 @@
 
 <ng-template #contenido let-modal>
-    <button
+    
+    
+    <!-- <div class="modal-header"> 
+      <h4 class="modal-title">Info</h4>
+    
+      <button
     class="close btn btn-danger"
     aria-label="close"
     type="button"
@@ -8,19 +13,22 @@
   >
     <span aria-hidden="true">&times;</span>
   </button>
-    <div class="modal-header">
+
+  </div> -->
+
     
-      <div class="modal-body">
+      <div class="modal-body bg-dark">
         <p>
-          En este componente debe indicar el número de páginas e idiomas de su web
+          Please select the number of pages and languages you want. You must choose
+    at least one of each.
         </p>
       </div>
-    </div>
-    <div class="modal-footer">
+
+    <!-- <div class="modal-footer">
       <button type="button" class="btn btn-success" (click)="modal.close()">
         OK
       </button>
-    </div>
+    </div> -->
   </ng-template>
   
   <button
@@ -28,3 +36,6 @@
     class="btn btn-outline-warning"
     (click)="open(contenido)"
   >Info</button> 
+
+  
+

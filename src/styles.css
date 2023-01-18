@@ -8,10 +8,15 @@ body {
 h1{
     font-family: 'Chakra Petch', sans-serif;
     color: rgba(51, 139, 147);
-
-   
-
 }
+
+p {
+    font-family: 'Chakra Petch', sans-serif;
+    color: rgb(226, 230, 43);
+    font-size: x-large;
+} 
+
+
 .panel{
     border-color: rgb(51, 82, 62)!important;
     background-color:black
