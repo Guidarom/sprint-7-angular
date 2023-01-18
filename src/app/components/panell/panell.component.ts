@@ -1,45 +1,90 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { calculatorService} from '../../components.service';
 
-export interface Quantity {  
-  numberPages: Number;
-  numberLanguages: Number;
-}
+
 
 @Component({
   selector: 'app-panell',
   templateUrl: './panell.component.html',
   styleUrls: ['./panell.component.css']
 })
-export class PanellComponent {
+export class PanellComponent implements OnInit {
 
-  @Input() totalSum:Number=0;
-  @Output() newQuantity1 = new EventEmitter<Number>();
-  @Output() newQuantity2 = new EventEmitter<Number>();
-  
-
-  newPanel:Quantity= {
-    numberPages: 1,
-    numberLanguages:1
+  ngOnInit() {
+    this.pags = this.calculatorService.pags;
+    this.languages = this.calculatorService.languages;
   }
+
+  @Input() pags: number = 0;
+  @Input() languages: number = 0;
+
+  @Output() pagsChange = new EventEmitter<number>();
+  @Output() languagesChange = new EventEmitter<number>();
+  constructor(private calculatorService: calculatorService) {}
+
+
+
+
+
+
 
 
   cambiarCantidad1(event:any){
 
-    if (event.target.value>=1){
-      this.newQuantity1.emit(this.newPanel.numberPages)
+    if (event.target.value>=0){
+      this.pags = event.target.value
+      this.pagsChange.emit(this.pags)
+      
       //console.log('La cantidad de páginas es' +' '+ this.newPanel.numberPages)
     }
 
   }
   cambiarCantidad2(event:any){
 
-    if (event.target.value>=1){
+    if (event.target.value>=0){
+      this.languages = event.target.value
+      this.languagesChange.emit(this.languages);
 
-      this.newQuantity2.emit(this.newPanel.numberLanguages)
-      //console.log('La cantidad de idiomas es:' + ' ' + this.newPanel.numberLanguages)
+      
+      //console.log('La cantidad de languages es:' + ' ' + this.newPanel.numberLanguages)
     }
 
   } 
 
-  
+
+ decrementPage() {
+    if(this.pags<=0){
+      this.pags = 1
+    }
+    this.pags--;
+    this.pagsChange.emit(this.pags);
+  }
+
+  incrementPage() {
+    if(this.pags<=0){
+      this.pags = 0
+    }
+    this.pags++;
+    this.pagsChange.emit(this.pags);
+  } 
+
+   decrementLang() {
+     if(this.languages<=0){
+     this.languages = 1
+    }
+    this.languages--;
+    this.languagesChange.emit(this.languages);
+  }
+
+  incrementLang() {
+    if(this.languages<=0){
+      this.languages = 0
+    }
+    this.languages++;
+    this.languagesChange.emit(this.languages);
+  }  
 }
+
+
+  
+

@@ -1,45 +1,72 @@
 
-<form class="p-5">
-    <h2> ¿Qué quieres hacer?</h2>
+<form class="px-2 px-sm-4 py-3 ">
+    <h1 > ¿What do you want to do?</h1>
+    <br>
     
     
-    <label>
+    <label id="font1">
         <input  type="checkbox"
-                name="checked1"
-                [(ngModel)]="checked1" 
-                (change)="onCheckbox1($event)"> Una página web(500€)
+                
+                name="web"
+                [(ngModel)]="web" 
+                (change)="calculatePrice(); showPanel()">  Web page(500€)
     </label>
     <br>
-        <div class="container">
-            <app-panell *ngIf="showChildComponent"  
-                        [totalSum]="totalSum"
-                        (newQuantity1)="changePages($event)"
-                        (newQuantity2)="changelanguages($event)">
+        <div class="container " *ngIf="showChild" >
+            <app-panell  
+                        [(pags)]="pags"
+                        [(languages)]="languages"
+                        (pagsChange)="calculatePrice()"
+                        (languagesChange)="calculatePrice()">
             
             </app-panell>
         </div>
     <br>
     
-    <label>
+    <label id="font1">
         <input  type="checkbox" 
-                name="checked2" 
-                [(ngModel)]="checked2" 
-                (change)="onCheckbox2($event)"> Una campaña SEO (300 €)
+                name="seo" 
+                [(ngModel)]="seo" 
+                (change)="calculatePrice()"> SEO services (300 €)
     </label>
     <br>
     <br>
 
-    <label>
+    <label id="font1">
         <input  type="checkbox" 
-                name="checked3" 
-                [(ngModel)]="checked3" 
-                (change)="onCheckbox3($event)"> Una campaña de publicidad (200 €)</label>
+                name="ads" 
+                [(ngModel)]="ads" 
+                (change)="calculatePrice()"> Google Ads  (200 €)</label>
 
     <br>
     <br>
-    
     <p id = "result"></p>
-    <span>Total: {{totalSum}} euros</span>
+    <span id="font1">Total: {{precioTotal}} €</span>
+
+    <div class="pt-3">
+        <div class="mb-2">
+
+          <input  type="text" 
+                  class="form-control"  
+                  style="max-width: 300px"
+                  placeholder="Budget name">
+                  
+                  <p class="form-text text-danger">
+                    <span>
+                      Please enter your budget name.
+                    </span>
+                  </p>
+        </div>
+        <input  type="text" 
+                class="form-control" 
+                style="max-width: 300px"
+                placeholder="Client name">
+                <p class="form-text text-danger">
+                  <span >
+                    Please enter your client name.
+                  </span>
+                </p>
+      </div>
 
 
 </form>

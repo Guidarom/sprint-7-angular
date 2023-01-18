@@ -1,22 +1,42 @@
-<div class="container" class="p-2">
-    <div class="row">
-        <div class="col-12 col-sm-6  p-2 border border-3 rounded border-dark" style="max-width: 350px;">
-            <label class="p-2">
-            Número de páginas
-                <input  type="number"
-                        name="numberPages"
-                        [(ngModel)]="newPanel.numberPages"
-                        (change)="cambiarCantidad1($event)"
-                        style="max-width: 160px" />
-            </label>
-            <label class="p-2">
-            Número de idiomas
-                <input  type="number"
-                        name="numberLanguages"
-                        [(ngModel)]="newPanel.numberLanguages" 
-                        (change)="cambiarCantidad2($event)"
-                        style="max-width: 160px" />
-            </label>
+
+    <div class="row py-2">
+        <div class="col-12  p-2 border border-3 rounded panel" 
+            style="max-width: 350px;">
+
+            <div class="row d-flex align-items-center justify-content-between ">
+                <div class="form-group p-2 col-6" style="max-width: 150px">
+                    <label class="p-2 " id="font2" >let pages =</label>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-secondary mx-1" (click)="decrementPage()">-</button>
+                    <input  type="number"
+                            name="pags"
+                            [min]="0" 
+                            [(ngModel)]="pags"
+                            (change)="cambiarCantidad1($event)"
+                            style="max-width: 40px" />
+                <button class="btn btn-secondary mx-1" (click)="incrementPage()">+</button>
+                </div>
+
+            <div class="form-group p-2 col-6" style="max-width: 150px">
+                <label class="p-2" id="font2" >let languages =</label>
+            </div>
+            <div class=" col-6">
+                <button class="btn btn-secondary mx-1" (click)="decrementLang()">-</button>
+                    <input  type="number"
+                            name="languages"
+                            [min]="0" 
+                            [(ngModel)]="languages" 
+                            (change)="cambiarCantidad2($event)"
+                            style="max-width: 40px" />
+                <button class="btn btn-secondary mx-1" (click)="incrementLang()">+</button>
+            </div>
+
+
+            
+            <app-modal></app-modal>
         </div>
     </div>
-</div>
+
+
+
