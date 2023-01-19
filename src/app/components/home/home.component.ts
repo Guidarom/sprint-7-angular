@@ -12,6 +12,8 @@ import { calculatorService} from '../../components.service';
 export class HomeComponent{
     constructor(private calculatorService: calculatorService) {}
     showChildComponent = false;
+    budgetName: string = ' ';
+    clientName: string = ' ' ;
 
     get showChild(): boolean {
         return this.calculatorService.showChild;
@@ -45,4 +47,10 @@ export class HomeComponent{
         
         this.calculatorService.calculatePrice();
         }
+
+    saveBudget() {
+      this.calculatorService.saveBudget();
+      console.log('el presupuesto ' +''+ this.budgetName+ ''+'de' +this.clientName)
+    }
+
 }

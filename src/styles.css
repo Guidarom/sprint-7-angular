@@ -5,9 +5,10 @@ body {
     background-image: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
 }
 
-h1{
+h2{
     font-family: 'Chakra Petch', sans-serif;
-    color: rgba(51, 139, 147);
+    color: black;
+    /* color: rgba(51, 139, 147);  */
 }
 
 p {

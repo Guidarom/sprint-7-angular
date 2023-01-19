@@ -50,6 +50,11 @@ export class calculatorService {
     }
   }
 
+  saveBudget(){
+    console.log ('hola saveBudget funciona')
+
+  }
+
 }
 
 

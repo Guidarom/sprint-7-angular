@@ -1,6 +1,6 @@
 
 <form class="px-2 px-sm-4 py-3 ">
-    <h1 > ¿What do you want to do?</h1>
+    <h2 > ¿What do you want to do?</h2>
     <br>
     
     
@@ -39,9 +39,8 @@
                 (change)="calculatePrice()"> Google Ads  (200 €)</label>
 
     <br>
-    <br>
     <p id = "result"></p>
-    <span id="font1">Total: {{precioTotal}} €</span>
+    <span id="font1">Total: <strong>{{precioTotal}}</strong> €</span>
 
     <div class="pt-3">
         <div class="mb-2">
@@ -49,23 +48,36 @@
           <input  type="text" 
                   class="form-control"  
                   style="max-width: 300px"
+                  name="budgetName"
+                  [(ngModel)]="budgetName"
                   placeholder="Budget name">
                   
+                  
                   <p class="form-text text-danger">
-                    <span>
+                    <!-- <span>
                       Please enter your budget name.
-                    </span>
+                    </span> -->
                   </p>
         </div>
         <input  type="text" 
                 class="form-control" 
                 style="max-width: 300px"
+                name="nameClient"
+                [(ngModel)]="clientName"
                 placeholder="Client name">
                 <p class="form-text text-danger">
-                  <span >
+                  <!-- <span >
                     Please enter your client name.
-                  </span>
+                  </span> -->
                 </p>
+                
+                <button
+                (click)="saveBudget()"
+                class="btn btn-outline-success"
+              >
+                Save budget
+              </button>
+        
       </div>
 
 
