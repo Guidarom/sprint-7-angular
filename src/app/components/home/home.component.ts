@@ -2,6 +2,14 @@ import { Component } from '@angular/core';
 import { calculatorService} from '../../components.service';
 
 
+export interface Budget {
+  id:         number;
+  budgetName: string;
+  clientName: string;
+  date:       string;
+  total:      number
+}
+
 
 @Component({
     selector: 'app-home',
@@ -12,8 +20,10 @@ import { calculatorService} from '../../components.service';
 export class HomeComponent{
     constructor(private calculatorService: calculatorService) {}
     showChildComponent = false;
+
+  budgetList:any=[];
     budgetName: string = ' ';
-    clientName: string = ' ' ;
+    clientName: string = ' ';
 
     get showChild(): boolean {
         return this.calculatorService.showChild;
@@ -49,8 +59,18 @@ export class HomeComponent{
         }
 
     saveBudget() {
+      const today = new Date().toLocaleDateString();
+      const newBudget: Budget = 
+      {
+        id:         this.budgetList.length + 1,
+        budgetName: this.budgetName,
+        clientName: this.clientName,
+        date:       today,
+        total:      this.precioTotal
+      }
       this.calculatorService.saveBudget();
       console.log('el presupuesto ' +''+ this.budgetName+ ''+'de' +this.clientName)
+      console.log(newBudget)
     }
 
 }

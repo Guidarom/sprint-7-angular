@@ -1,86 +1,130 @@
-
-<form class="px-2 px-sm-4 py-3 ">
-    <h2 > ¿What do you want to do?</h2>
-    <br>
-    
-    
-    <label id="font1">
-        <input  type="checkbox"
-                
-                name="web"
-                [(ngModel)]="web" 
-                (change)="calculatePrice(); showPanel()">  Web page(500€)
-    </label>
-    <br>
-        <div class="container " *ngIf="showChild" >
-            <app-panell  
-                        [(pags)]="pags"
-                        [(languages)]="languages"
-                        (pagsChange)="calculatePrice()"
-                        (languagesChange)="calculatePrice()">
-            
-            </app-panell>
-        </div>
-    <br>
-    
-    <label id="font1">
-        <input  type="checkbox" 
-                name="seo" 
-                [(ngModel)]="seo" 
-                (change)="calculatePrice()"> SEO services (300 €)
-    </label>
-    <br>
-    <br>
-
-    <label id="font1">
-        <input  type="checkbox" 
-                name="ads" 
-                [(ngModel)]="ads" 
-                (change)="calculatePrice()"> Google Ads  (200 €)</label>
-
-    <br>
-    <p id = "result"></p>
-    <span id="font1">Total: <strong>{{precioTotal}}</strong> €</span>
-
-    <div class="pt-3">
-        <div class="mb-2">
-
-          <input  type="text" 
-                  class="form-control"  
-                  style="max-width: 300px"
-                  name="budgetName"
-                  [(ngModel)]="budgetName"
-                  placeholder="Budget name">
-                  
-                  
-                  <p class="form-text text-danger">
-                    <!-- <span>
-                      Please enter your budget name.
-                    </span> -->
-                  </p>
-        </div>
-        <input  type="text" 
-                class="form-control" 
-                style="max-width: 300px"
-                name="nameClient"
-                [(ngModel)]="clientName"
-                placeholder="Client name">
-                <p class="form-text text-danger">
-                  <!-- <span >
-                    Please enter your client name.
-                  </span> -->
-                </p>
-                
-                <button
-                (click)="saveBudget()"
-                class="btn btn-outline-success"
-              >
-                Save budget
-              </button>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6 ">
+      <form class=" py-3 ">
+        <h2 > ¿What do you want to do?</h2>
+        <br>
         
-      </div>
+        
+        <label id="font1">
+            <input  type="checkbox"
+                    
+                    name="web"
+                    [(ngModel)]="web" 
+                    (change)="calculatePrice(); showPanel()">  Web page(500€)
+        </label>
+        <br>
+            <div class="container " *ngIf="showChild" >
+                <app-panell  
+                            [(pags)]="pags"
+                            [(languages)]="languages"
+                            (pagsChange)="calculatePrice()"
+                            (languagesChange)="calculatePrice()">
+                
+                </app-panell>
+            </div>
+        <br>
+        
+        <label id="font1">
+            <input  type="checkbox" 
+                    name="seo" 
+                    [(ngModel)]="seo" 
+                    (change)="calculatePrice()"> SEO services (300 €)
+        </label>
+        <br>
+        <br>
+    
+        <label id="font1">
+            <input  type="checkbox" 
+                    name="ads" 
+                    [(ngModel)]="ads" 
+                    (change)="calculatePrice()"> Google Ads  (200 €)</label>
+    
+        <br>
+        <p id = "result"></p>
+        <span id="font1">Total: <strong>{{precioTotal}}</strong> €</span>
+    
+    
+    
+        
+    
+        <div class="pt-3">
+            <div class="mb-2">
+              <label id="font3">Budget name</label>
+              <input  type="text" 
+                      class="form-control"  
+                      style="max-width: 300px"
+                      name="budgetName"
+                      [(ngModel)]="budgetName">
+                      
+                      
+                      <p class="form-text text-danger">
+                        <!-- <span>
+                          Please enter your budget name.
+                        </span> -->
+                      </p>
+            </div>
+            <label id="font3">Client name</label>
 
 
-</form>
+            <!-- <div class="d-md-flex gap-2 d-block">
+              <input  type="text" 
+                    class="form-control" 
+                    style="max-width: 300px"
+                    name="nameClient"
+                    [(ngModel)]="clientName">
+                    
+              
+                      <button
+                      (click)="saveBudget()"
+                      class="btn btn-outline-success"
+                    >
+                      Save budget
+                    </button>
+            </div> -->
+
+               <input  type="text" 
+                    class="form-control" 
+                    style="max-width: 300px"
+                    name="nameClient"
+                    [(ngModel)]="clientName">
+                    <!-- <p class="form-text text-danger">
+                       <span >
+                        Please enter your client name.
+                      </span> 
+                    </p> -->
+                    
+                    <div class='py-2'>
+                    <button
+                    (click)="saveBudget()"
+                    class="btn btn-outline-success"
+                  >
+                    Save budget
+                  </button> 
+                  </div>
+                  
+            
+          </div>
+
+
+
+
+
+    
+    
+    </form>
+
+  </div>
+
+    <div class="col-12 col-lg-6">
+      <app-budget-list></app-budget-list>
+
+    </div>
+
+
+
+    
+  </div>
+</div>
 
     
