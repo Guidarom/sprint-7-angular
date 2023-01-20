@@ -1,1 +1,29 @@
-<h1>budget-list works!</h1>
+<!-- <h1>budget-list works!</h1>
+<p>{{mensaje}}</p> -->
+<table class="table " >
+    <thead >
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Budget</th>
+        <th scope="col">Client</th>
+        <th scope="col">Date</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of budgetList; let i = index">
+        <th scope="row">{{ list.id }}</th>
+        <td>{{ list.budgetName }}</td>
+        <td>{{list.clientName}}</td>
+        <td>{{ list.date }}</td>
+        <td>{{ list.total}} €</td>
+        <td><button type="button"
+                    class="text-white text-center btn btn-danger  py-0 px-2"
+                    (click)="removeBudget(i)"
+                    >x</button></td>
+        
+      </tr>
+    </tbody>
+  </table>

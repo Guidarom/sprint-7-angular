@@ -19,9 +19,13 @@ export interface Budget {
 
 export class HomeComponent{
     constructor(private calculatorService: calculatorService) {}
-    showChildComponent = false;
+    showChildComponent: boolean = false;
+    showBudgetComponent: boolean = false;
 
-  budgetList:any=[];
+    public mensaje = 'Hola desde el componente padre!'
+    
+
+    public budgetList:any=[];
     budgetName: string = ' ';
     clientName: string = ' ';
 
@@ -59,6 +63,7 @@ export class HomeComponent{
         }
 
     saveBudget() {
+      this.showBudgetComponent = true;
       const today = new Date().toLocaleDateString();
       const newBudget: Budget = 
       {
@@ -68,9 +73,12 @@ export class HomeComponent{
         date:       today,
         total:      this.precioTotal
       }
+
+      this.budgetList.push(newBudget)
       this.calculatorService.saveBudget();
       console.log('el presupuesto ' +''+ this.budgetName+ ''+'de' +this.clientName)
       console.log(newBudget)
+      console.log(this.budgetList)
     }
 
 }
