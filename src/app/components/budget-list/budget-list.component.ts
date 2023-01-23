@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { calculatorService } from '../../components.service';
+import { calculatorService, Budget } from '../../components.service';
 
 
 @Component({
@@ -16,27 +16,27 @@ export class BudgetListComponent  {
   @Input() mensaje: string = ''
   @Input() budgetList: any;
 
-
-  //@Input() showBudgetComponent: boolean = false;
-
-  
-
   get showBudgetComponent():any {
     return this.calculatorService.showBudgetComponent;
     
   } 
-  
-
-
-
   removeBudget(list:any): void{
     this.budgetList.splice(list,1)
-    //this.showBudgetComponent();
+  
     if (this.budgetList.length===0){
       this.calculatorService.showBudgetComponent();
     }
     
     
+  }
+  orderAlf(){
+    this.budgetList.sort((a:any, b:any) => a.budgetName.localeCompare(b.budgetName));
+  }
+  orderDate(){
+    this.budgetList.sort( (a:any, b:any) => (a.date - b.date ) ? 1 : -1);   
+  }
+  reset(){
+    this.budgetList.sort((a:any, b:any) => (a.id > b.id) ? 1 : -1);
   }
 
 }

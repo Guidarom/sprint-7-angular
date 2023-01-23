@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { calculatorService} from '../../components.service';
 
 
-
 @Component({
   selector: 'app-panell',
   templateUrl: './panell.component.html',
@@ -22,13 +21,6 @@ export class PanellComponent implements OnInit {
   @Output() languagesChange = new EventEmitter<number>();
   constructor(private calculatorService: calculatorService) {}
 
-
-
-
-
-
-
-
   cambiarCantidad1(event:any){
 
     if (event.target.value>0){}
@@ -37,21 +29,17 @@ export class PanellComponent implements OnInit {
       
       //console.log('La cantidad de páginas es' +' '+ this.newPanel.numberPages)
     
-
   }
   cambiarCantidad2(event:any){
 
   //  if (event.target.value>0){}
       this.languages = event.target.value
       this.languagesChange.emit(this.languages);
-
       
       //console.log('La cantidad de languages es:' + ' ' + this.newPanel.numberLanguages)
     
   }
-
-
- decrementPage() {
+  decrementPage() {
     if(this.pags<=1){
       this.pags = 1
       this.pagsChange.emit(this.pags)
@@ -69,11 +57,11 @@ export class PanellComponent implements OnInit {
     this.pagsChange.emit(this.pags);
   } 
 
-   decrementLang() {
-     if(this.languages<=1){
-     this.languages = 1
-     this.languagesChange.emit(this.languages)
-     return
+  decrementLang() {
+    if(this.languages<=1){
+    this.languages = 1
+    this.languagesChange.emit(this.languages)
+    return
     }
     this.languages--;
     this.languagesChange.emit(this.languages);
@@ -87,7 +75,3 @@ export class PanellComponent implements OnInit {
     this.languagesChange.emit(this.languages);
   }  
 }
-
-
-  
-

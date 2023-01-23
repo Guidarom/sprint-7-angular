@@ -15,16 +15,12 @@ import { Budget } from '../../components.service';
 export class HomeComponent{
     constructor(private calculatorService: calculatorService) {}
     showChildComponent: boolean = false;
-    //showBudgetComponent: boolean = this.showtable;
-  
-
     public mensaje = 'Hola desde el componente padre!'
 
     get budgetList(){
       return this.calculatorService.budgetList;
     }
     
-
     budgetName: string = ' ';
     clientName: string = ' ';
 
@@ -41,7 +37,7 @@ export class HomeComponent{
       }
 
       get web ():boolean {
-       return  this.calculatorService.web;
+        return  this.calculatorService.web;
       }
 
       set web(value: boolean) {
@@ -62,7 +58,6 @@ export class HomeComponent{
       get precioTotal(): number {
         return this.calculatorService.precioTotal;
       }
-
       get languages(): number {
         return this.calculatorService.languages;
       }
@@ -77,20 +72,15 @@ export class HomeComponent{
         this.calculatorService.pags = value;
     }
     
-    
-
-
     showPanel() {
         this.calculatorService.showPanel();
     }
 
-    calculatePrice() {
-        
+    calculatePrice() {      
         this.calculatorService.calculatePrice();
         }
 
     saveBudget() {
-      //this.showBudgetComponent = true;
       const today = new Date().toLocaleDateString();
       let isValidclient:boolean=false;
       let isValidChecks: boolean=false;
@@ -124,22 +114,10 @@ export class HomeComponent{
       this.calculatorService.saveToLocalStorage(this.budgetList)
       console.log(localStorage)
     }
-
-
-
-
     if(this.budgetList.length > 0){
     this.showTable = true;
     }
-    
-
-
-
-
       this.calculatorService.saveBudget();
-      console.log('el presupuesto ' +''+ this.budgetName+ ''+'de' +this.clientName)
-      console.log(newBudget)
-      console.log(this.budgetList)
     }
 
 }
