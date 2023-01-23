@@ -15,8 +15,8 @@ export class PanellComponent implements OnInit {
     this.languages = this.calculatorService.languages;
   }
 
-  @Input() pags: number = 0;
-  @Input() languages: number = 0;
+  @Input() pags: number = 1;
+  @Input() languages: number = 1;
 
   @Output() pagsChange = new EventEmitter<number>();
   @Output() languagesChange = new EventEmitter<number>();
@@ -31,7 +31,7 @@ export class PanellComponent implements OnInit {
 
   cambiarCantidad1(event:any){
 
-    if (event.target.value>=0){
+    if (event.target.value>0){
       this.pags = event.target.value
       this.pagsChange.emit(this.pags)
       
@@ -41,7 +41,7 @@ export class PanellComponent implements OnInit {
   }
   cambiarCantidad2(event:any){
 
-    if (event.target.value>=0){
+    if (event.target.value>0){
       this.languages = event.target.value
       this.languagesChange.emit(this.languages);
 
@@ -53,8 +53,10 @@ export class PanellComponent implements OnInit {
 
 
  decrementPage() {
-    if(this.pags<=0){
+    if(this.pags<=1){
       this.pags = 1
+      this.pagsChange.emit(this.pags)
+      return
     }
     this.pags--;
     this.pagsChange.emit(this.pags);
@@ -69,8 +71,10 @@ export class PanellComponent implements OnInit {
   } 
 
    decrementLang() {
-     if(this.languages<=0){
+     if(this.languages<=1){
      this.languages = 1
+     this.languagesChange.emit(this.languages)
+     return
     }
     this.languages--;
     this.languagesChange.emit(this.languages);

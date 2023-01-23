@@ -1,14 +1,25 @@
 import { Injectable } from '@angular/core';
 
+
+export interface Budget {
+  id:         number;
+  budgetName: string;
+  clientName: string;
+  date:       string;
+  total:      number
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class calculatorService {
+  budgetList: Budget[] = [];
 
   
 
   //constructor() { }
   public showChild: boolean = false;
+  public showBudget: boolean =false;
   public precioTotal = 0;
   public precioWeb = 500;
   public precioSeo = 300;
@@ -16,8 +27,8 @@ export class calculatorService {
   public web: boolean = false;
   public seo: boolean = false;
   public ads: boolean = false;
-  public pags: number = 0;
-  public languages: number = 0;
+  public pags: number = 1;
+  public languages: number = 1;
 
 
   showPanel(){
@@ -25,6 +36,17 @@ export class calculatorService {
     this.showChild = false
     }
   }
+
+  showBudgetComponent (){
+   
+    this.showBudget=false
+    console.log(this.showBudget)
+    
+    console.log('hola budget')
+  }
+
+  
+
 
 
   calculatePrice() {
@@ -34,8 +56,8 @@ export class calculatorService {
       this.precioTotal += this.precioWeb;
     }
     if(!this.web){
-      this.pags = 0
-      this.languages = 0
+      this.pags = 1
+      this.languages = 1
     }
     if (this.seo) {
       this.precioTotal += this.precioSeo;
@@ -51,8 +73,16 @@ export class calculatorService {
   }
 
   saveBudget(){
+    if(this.budgetList.length===0){
+      this.showBudget= false
+    }
     console.log ('hola saveBudget funciona')
 
+  }
+
+  saveToLocalStorage(list: Budget[]) {
+    localStorage.setItem('list', JSON.stringify(list))
+    //console.log(localStorage)
   }
 
 }

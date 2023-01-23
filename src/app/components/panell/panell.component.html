@@ -11,7 +11,7 @@
                     <button class="btn btn-warning mx-1" (click)="decrementPage()"><strong>-</strong></button>
                     <input  type="number"
                             name="pags"
-                            [min]="0" 
+                            [min]="1" 
                             [(ngModel)]="pags"
                             (change)="cambiarCantidad1($event)"
                             style="max-width: 40px" />
@@ -25,7 +25,7 @@
                 <button class="btn btn-warning mx-1" (click)="decrementLang()"><strong>-</strong></button>
                     <input  type="number"
                             name="languages"
-                            [min]="0" 
+                            [min]="1" 
                             [(ngModel)]="languages" 
                             (change)="cambiarCantidad2($event)"
                             style="max-width: 40px" />

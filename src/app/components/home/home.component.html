@@ -116,8 +116,10 @@
 
   </div>
 
-    <div class="col-12 col-lg-6" *ngIf="showBudgetComponent">
-      <app-budget-list [mensaje]="mensaje" [budgetList]="budgetList"></app-budget-list>
+    <div class="col-12 col-lg-6" *ngIf="showTable">
+      <app-budget-list  
+                        [budgetList]="budgetList">
+      </app-budget-list>
 
     </div>
 
