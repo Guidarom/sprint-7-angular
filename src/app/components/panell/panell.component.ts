@@ -31,25 +31,24 @@ export class PanellComponent implements OnInit {
 
   cambiarCantidad1(event:any){
 
-    if (event.target.value>0){
+    if (event.target.value>0){}
       this.pags = event.target.value
       this.pagsChange.emit(this.pags)
       
       //console.log('La cantidad de páginas es' +' '+ this.newPanel.numberPages)
-    }
+    
 
   }
   cambiarCantidad2(event:any){
 
-    if (event.target.value>0){
+  //  if (event.target.value>0){}
       this.languages = event.target.value
       this.languagesChange.emit(this.languages);
 
       
       //console.log('La cantidad de languages es:' + ' ' + this.newPanel.numberLanguages)
-    }
-
-  } 
+    
+  }
 
 
  decrementPage() {

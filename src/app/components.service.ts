@@ -51,11 +51,13 @@ export class calculatorService {
 
   calculatePrice() {
     this.precioTotal = 0;
+    let y = 30
     if (this.web) {
       this.showChild=true;
       this.precioTotal += this.precioWeb;
     }
     if(!this.web){
+      y= 0;
       this.pags = 1
       this.languages = 1
     }
@@ -65,7 +67,7 @@ export class calculatorService {
     if (this.ads) {
       this.precioTotal += this.precioAds;
     }
-    this.precioTotal += this.pags * this.languages * 30;
+    this.precioTotal += this.pags * this.languages * y;
     
     if (!this.web && !this.seo && !this.ads) {
       this.precioTotal = 0;

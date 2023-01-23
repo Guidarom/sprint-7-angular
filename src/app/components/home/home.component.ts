@@ -40,12 +40,21 @@ export class HomeComponent{
         this.calculatorService.showBudget = value;
       }
 
+      get web ():boolean {
+       return  this.calculatorService.web;
+      }
 
-    set web(value: boolean) {
+      set web(value: boolean) {
         this.calculatorService.web = value;
+      }
+      get seo():boolean {
+        return this.calculatorService.seo;
       }
       set seo(value: boolean) {
         this.calculatorService.seo = value;
+      }
+      get ads():boolean {
+        return this.calculatorService.ads;
       }
       set ads(value: boolean) {
         this.calculatorService.ads = value;
@@ -83,6 +92,9 @@ export class HomeComponent{
     saveBudget() {
       //this.showBudgetComponent = true;
       const today = new Date().toLocaleDateString();
+      let isValidclient:boolean=false;
+      let isValidChecks: boolean=false;
+      let isValidweb: boolean=false;
       const newBudget: Budget = 
       {
         id:         this.budgetList.length + 1,
@@ -93,13 +105,29 @@ export class HomeComponent{
       }
 
       if (newBudget.budgetName.trim().length >= 3 && newBudget.clientName.trim().length >= 3 ) {
+        isValidclient = true;
         
-        this.budgetList.push(newBudget)
-        this.calculatorService.saveToLocalStorage(this.budgetList)
-        console.log(localStorage)
         
         // El campo es válido
     }
+    if(this.web && this.pags>=1 && this.languages>=1){
+      isValidweb=true;
+    }
+
+    if(isValidweb || this.seo || this.ads){
+      isValidChecks = true;
+    }
+
+    if (isValidChecks && isValidclient){
+
+      this.budgetList.push(newBudget)
+      this.calculatorService.saveToLocalStorage(this.budgetList)
+      console.log(localStorage)
+    }
+
+
+
+
     if(this.budgetList.length > 0){
     this.showTable = true;
     }
