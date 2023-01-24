@@ -7,7 +7,6 @@ import { calculatorService, } from '../../components.service';
   selector: 'app-budget-list',
 
   templateUrl: './budget-list.component.html', 
-  styleUrls: ['./budget-list.component.css'] 
 })
 export class BudgetListComponent  {
 
@@ -20,6 +19,7 @@ export class BudgetListComponent  {
   constructor(private calculatorService: calculatorService) {}
   @Input() mensaje: string = ''
   @Input() budgetList: any;
+  //const budgetStorage = JSON.parse(localStorage.getItem('list'));
 
   get showBudgetComponent():any {
     return this.calculatorService.showBudgetComponent;
@@ -45,7 +45,7 @@ export class BudgetListComponent  {
   }
 
   search(){
-
+    
     const foundBudget= this.budgetList.find((e:any)=>this.searchBudget ===e.budgetName)
     
 
@@ -53,7 +53,8 @@ export class BudgetListComponent  {
       foundBudget.toString()
       this.budgetString = JSON.stringify(foundBudget);
       this.showBudgetName = true;
-      console.log(this.budgetString)
+      console.log(this.budgetString);
+     console.log(this.budgetList.length)
       
     }
     if (!foundBudget) {

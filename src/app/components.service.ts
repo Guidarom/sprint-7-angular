@@ -39,34 +39,26 @@ export class calculatorService {
     console.log('hola budget')
   }
 
+  calculatePrice() {
+    let y = 30;
+    this.precioTotal = (this.web ? this.precioWeb : 0) + (this.seo ? this.precioSeo : 0) + (this.ads ? this.precioAds : 0);
+    if (!this.web) {
+        y = 0;
+        this.pags = 1;
+        this.languages = 1;
+        this.showChild=false;
+    }
+    this.precioTotal += this.pags * this.languages * y;
+    if (!this.web && !this.seo && !this.ads) {
+        this.precioTotal = 0;
+    }
+}
+
   
 
 
 
-  calculatePrice() {
-    this.precioTotal = 0;
-    let y = 30
-    if (this.web) {
-      this.showChild=true;
-      this.precioTotal += this.precioWeb;
-    }
-    if(!this.web){
-      y= 0;
-      this.pags = 1
-      this.languages = 1
-    }
-    if (this.seo) {
-      this.precioTotal += this.precioSeo;
-    }
-    if (this.ads) {
-      this.precioTotal += this.precioAds;
-    }
-    this.precioTotal += this.pags * this.languages * y;
-    
-    if (!this.web && !this.seo && !this.ads) {
-      this.precioTotal = 0;
-    }
-  }
+
 
   saveBudget(){
     if(this.budgetList.length===0){
@@ -78,7 +70,7 @@ export class calculatorService {
 
   saveToLocalStorage(list: Budget[]) {
     localStorage.setItem('list', JSON.stringify(list))
-    //console.log(localStorage)
+    console.log(localStorage)
   }
 
 }

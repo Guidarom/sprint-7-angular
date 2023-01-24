@@ -19,10 +19,14 @@ p {
 } 
 
 
-.panel{
+ .panel{
     border-color: rgb(51, 82, 62)!important;
     background-color:black
-}
+} 
+/* #panel{
+    border-color: rgb(51, 82, 62)!important;
+    background-color:black
+} */
 
 #font1{
     font-family: 'Chakra Petch', sans-serif;

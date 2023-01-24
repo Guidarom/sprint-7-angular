@@ -3,9 +3,6 @@ import { calculatorService} from '../../components.service';
 import { Budget } from '../interface/budget';
 
 
-
-
-
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html'
@@ -15,7 +12,6 @@ import { Budget } from '../interface/budget';
 export class HomeComponent{
     constructor(private calculatorService: calculatorService) {}
     showChildComponent: boolean = false;
-    public mensaje = 'Hola desde el componente padre!'
 
     get budgetList(){
       return this.calculatorService.budgetList;
@@ -80,44 +76,26 @@ export class HomeComponent{
         this.calculatorService.calculatePrice();
         }
 
-    saveBudget() {
-      const today = new Date().toLocaleDateString();
-      let isValidclient:boolean=false;
-      let isValidChecks: boolean=false;
-      let isValidweb: boolean=false;
-      const newBudget: Budget = 
-      {
-        id:         this.budgetList.length + 1,
-        budgetName: this.budgetName,
-        clientName: this.clientName,
-        date:       today,
-        total:      this.precioTotal
+        saveBudget() {
+          const today = new Date().toLocaleDateString();
+          const newBudget: Budget = 
+          {
+            id:         this.budgetList.length + 1,
+            budgetName: this.budgetName,
+            clientName: this.clientName,
+            date:       today,
+            total:      this.precioTotal
+          }
+      
+          if (newBudget.budgetName.trim().length >= 3 &&
+              newBudget.clientName.trim().length >= 3 && 
+              (this.web && this.pags >= 1 && this.languages >= 1 || this.seo || this.ads)) {
+              this.budgetList.push(newBudget);
+              this.calculatorService.saveToLocalStorage(this.budgetList);
+              this.showTable = true;
+          }
+          this.calculatorService.saveBudget();
       }
-
-      if (newBudget.budgetName.trim().length >= 3 && newBudget.clientName.trim().length >= 3 ) {
-        isValidclient = true;
-        
-        
-        // El campo es válido
-    }
-    if(this.web && this.pags>=1 && this.languages>=1){
-      isValidweb=true;
-    }
-
-    if(isValidweb || this.seo || this.ads){
-      isValidChecks = true;
-    }
-
-    if (isValidChecks && isValidclient){
-
-      this.budgetList.push(newBudget)
-      this.calculatorService.saveToLocalStorage(this.budgetList)
-      console.log(localStorage)
-    }
-    if(this.budgetList.length > 0){
-    this.showTable = true;
-    }
-      this.calculatorService.saveBudget();
-    }
-
+      
+  
 }
