@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Budget } from './components/interface/budget';
 
 
-export interface Budget {
-  id:         number;
-  budgetName: string;
-  clientName: string;
-  date:       string;
-  total:      number
-}
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +33,6 @@ export class calculatorService {
   }
 
   showBudgetComponent (){
-   
     this.showBudget=false
     console.log(this.showBudget)
     

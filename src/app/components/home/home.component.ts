@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { calculatorService} from '../../components.service';
-import { Budget } from '../../components.service';
+import { Budget } from '../interface/budget';
 
 
 

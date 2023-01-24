@@ -15,6 +15,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     PanellComponent,
     ModalComponent,
     BudgetListComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
