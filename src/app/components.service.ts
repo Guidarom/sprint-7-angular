@@ -30,6 +30,9 @@ export class calculatorService {
     if(!this.web){
     this.showChild = false
     }
+     else{
+      this.showChild = true
+    } 
   }
 
   showBudgetComponent (){
@@ -64,7 +67,7 @@ export class calculatorService {
     if(this.budgetList.length===0){
       this.showBudget= false
     }
-    console.log ('hola saveBudget funciona')
+    //console.log ('hola saveBudget funciona')
 
   }
 

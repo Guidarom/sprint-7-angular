@@ -17,9 +17,11 @@ export class BudgetListComponent  {
 
 
   constructor(private calculatorService: calculatorService) {}
-  @Input() mensaje: string = ''
-  @Input() budgetList: any;
-  //const budgetStorage = JSON.parse(localStorage.getItem('list'));
+  //@Input() budgetList: any;
+
+  get budgetList():any{
+    return this.calculatorService.budgetList
+  }
 
   get showBudgetComponent():any {
     return this.calculatorService.showBudgetComponent;
