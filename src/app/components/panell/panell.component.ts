@@ -5,7 +5,7 @@ import { calculatorService} from '../../components.service';
 @Component({
   selector: 'app-panell',
   templateUrl: './panell.component.html',
-  styleUrls: ['./panell.component.css']
+
 })
 export class PanellComponent implements OnInit {
 
