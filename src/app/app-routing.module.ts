@@ -4,9 +4,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { BudgetListComponent } from './components/budget-list/budget-list.component';
 import { PanellComponent } from './components/panell/panell.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
-  {path:'',component: HomeComponent},
+  {path:'',component: WelcomeComponent},
+  {path:'home',component: HomeComponent},
   {path:'modal',component:ModalComponent},
   {path:'panell',component:PanellComponent},
   {path:'budgetList',component:BudgetListComponent},

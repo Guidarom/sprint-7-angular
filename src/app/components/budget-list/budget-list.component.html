@@ -67,6 +67,29 @@
               id="font1" 
               (click)="reset()">Reset
       </button>
+      <button type="button" 
+              class="btn btn-success mb-2 rounded border border-dark border-2 " 
+              id="font1" 
+              (click)="search()">search budget
+      </button>
+      <div>
+      <input  type="text" 
+              class="form-control" 
+              [(ngModel)]="searchBudget"
+              placeholder="Insert budget"
+              style="max-width: 300px">
+            </div>
+              
+                    
+
     </div>
+  </div>
+  <div class="container">
+    <div class="row p-2" *ngIf="showBudgetName">
+      <div class="col-12  p-2 border border-3 rounded panel">
+        <span class="py-2 text-center" id="font2">your budget is...{{budgetString}} </span>
+      </div>
+    </div>
+  
   </div>
   

@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PanellComponent } from './components/panell/panell.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { BudgetListComponent } from './components/budget-list/budget-list.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
 
@@ -20,7 +21,8 @@ import { BudgetListComponent } from './components/budget-list/budget-list.compon
     HomeComponent,
     PanellComponent,
     ModalComponent,
-    BudgetListComponent
+    BudgetListComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

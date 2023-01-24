@@ -10,6 +10,10 @@ import { calculatorService, Budget } from '../../components.service';
 })
 export class BudgetListComponent  {
 
+  searchBudget:string ='';
+  budgetString: string ='';
+  showBudgetName: boolean = false;
+
 
 
   constructor(private calculatorService: calculatorService) {}
@@ -37,6 +41,25 @@ export class BudgetListComponent  {
   }
   reset(){
     this.budgetList.sort((a:any, b:any) => (a.id > b.id) ? 1 : -1);
+  }
+
+  search(){
+
+    const foundBudget= this.budgetList.find((e:any)=>this.searchBudget ===e.budgetName)
+    
+
+    if(foundBudget){
+      foundBudget.toString()
+      this.budgetString = JSON.stringify(foundBudget);
+      this.showBudgetName = true;
+      console.log(this.budgetString)
+      
+    }
+    if (!foundBudget) {
+      alert('tu presupuesto no ha sido encontrado')
+      
+    }
+    console.log(this.searchBudget)
   }
 
 }
