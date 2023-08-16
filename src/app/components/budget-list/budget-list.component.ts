@@ -11,7 +11,7 @@ import { calculatorService, } from '../../components.service';
 export class BudgetListComponent  {
 
   searchBudget:string ='';
-  budgetString: string ='';
+  budgetString: any;
   showBudgetName: boolean = false;
 
 
@@ -53,7 +53,8 @@ export class BudgetListComponent  {
 
     if(foundBudget){
       foundBudget.toString()
-      this.budgetString = JSON.stringify(foundBudget);
+      //this.budgetString = JSON.stringify(foundBudget); con pipe json se renderiza mejor
+      this.budgetString = foundBudget
       this.showBudgetName = true;
       console.log(this.budgetString);
      console.log(this.budgetList.length)
